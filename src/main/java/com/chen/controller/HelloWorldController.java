@@ -12,7 +12,7 @@ public class HelloWorldController {
     @RequestMapping("/attendance/getLocation")
     @ResponseBody
     public String getHelloworld() {
-        return "helloworld";
+        return "helloworld haha chen";
     }
 
 }
