@@ -71,6 +71,13 @@
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 
+		<!--mapper-->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper-spring-boot-starter</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
 		<!-- 自动生成文档 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

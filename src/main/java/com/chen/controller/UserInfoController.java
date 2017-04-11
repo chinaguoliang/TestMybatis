@@ -1,5 +1,7 @@
 package com.chen.controller;
 
+import com.chen.dao.UserInfoMapper;
+import com.chen.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +18,7 @@ public class UserInfoController {
     @RequestMapping("/getUserInfo")
     @ResponseBody
     public UserInfo getUserInfo() {
-        UserInfo userList = userInfoMapper.selectByPrimaryKey(10);
+        UserInfo userList = userInfoMapper.selectByPrimaryKey(new Integer(10));
 
         return userList;
     }
