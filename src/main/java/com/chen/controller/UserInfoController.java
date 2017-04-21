@@ -1,6 +1,6 @@
 package com.chen.controller;
 
-import com.chen.dao.UserInfoMapper;
+import com.chen.mapper.UserInfoMapper;
 import com.chen.model.UserInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,6 @@ public class UserInfoController {
     @Autowired
     private UserInfoMapper userInfoMapper;
 
-    @Autowired
-    private SqlSessionTemplate sqlSessionTemplate;
 
     @RequestMapping("/getUserInfo")
     @ResponseBody
@@ -39,12 +37,6 @@ public class UserInfoController {
 
 
 
-    @RequestMapping("/getOneUserInfo")
-    @ResponseBody
-    public UserInfo getOneUserInfo() {
-        UserInfo userList = sqlSessionTemplate.selectOne("com.chen.mapper.UserInfoMapper.selectByPrimaryKey",10);
-        return userList;
-    }
 
 
     @RequestMapping("/addUserInfo")
