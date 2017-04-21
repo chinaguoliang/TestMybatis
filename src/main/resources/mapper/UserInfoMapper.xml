@@ -16,6 +16,11 @@
     from plugin_location
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from plugin_location
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from plugin_location
     where id = #{id,jdbcType=INTEGER}

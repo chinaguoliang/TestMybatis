@@ -2,6 +2,8 @@ package com.chen.controller;
 
 import com.chen.mapper.UserInfoMapper;
 import com.chen.model.UserInfo;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +28,15 @@ public class UserInfoController {
         return userList;
     }
 
+
+    @RequestMapping("/getAllUser")
+    @ResponseBody
+    public List<UserInfo> getAllUser() {
+        PageHelper.startPage(1, 5);
+        List<UserInfo> userList = userInfoMapper.selectAll();
+        //PageInfo<UserInfo> result = new PageInfo<UserInfo>(userList);
+        return userList;
+    }
 
     @RequestMapping("/delUserInfo")
     @ResponseBody
