@@ -1,6 +1,7 @@
 package com.chen.controller;
 
 import com.chen.mapper.UserInfoMapper;
+import com.chen.model.BaseEntity;
 import com.chen.model.UserInfo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -31,11 +32,15 @@ public class UserInfoController {
 
     @RequestMapping("/getAllUser")
     @ResponseBody
-    public List<UserInfo> getAllUser() {
+    public BaseEntity getAllUser() {
         PageHelper.startPage(1, 5);
         List<UserInfo> userList = userInfoMapper.selectAll();
         //PageInfo<UserInfo> result = new PageInfo<UserInfo>(userList);
-        return userList;
+        BaseEntity be = new BaseEntity();
+        be.setUserList(userList);
+        be.setResultCode(0);
+        be.setErrorMsg("获取数据成功");
+        return be;
     }
 
     @RequestMapping("/delUserInfo")
