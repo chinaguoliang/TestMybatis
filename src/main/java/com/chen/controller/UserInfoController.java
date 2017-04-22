@@ -33,14 +33,20 @@ public class UserInfoController {
     @RequestMapping("/getAllUser")
     @ResponseBody
     public BaseEntity getAllUser() {
-        PageHelper.startPage(1, 5);
+        int onePageNum = 5;
+
+        PageHelper.startPage(1, onePageNum);
         List<UserInfo> userList = userInfoMapper.selectAll();
-        //PageInfo<UserInfo> result = new PageInfo<UserInfo>(userList);
         BaseEntity be = new BaseEntity();
         be.setUserList(userList);
         be.setResultCode(0);
+        be.setAllPageSize(getCount() / onePageNum);
         be.setErrorMsg("获取数据成功");
         return be;
+    }
+
+    private int getCount() {
+        return userInfoMapper.selectCount();
     }
 
     @RequestMapping("/delUserInfo")

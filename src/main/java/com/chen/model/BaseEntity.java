@@ -8,6 +8,16 @@ import java.util.List;
 public class BaseEntity {
     int resultCode = 0;
     String errorMsg;
+    int AllPageSize;
+
+    public int getAllPageSize() {
+        return AllPageSize;
+    }
+
+    public void setAllPageSize(int allPageSize) {
+        AllPageSize = allPageSize;
+    }
+
     List<UserInfo> userList;
 
     public int getResultCode() {
