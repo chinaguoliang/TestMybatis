@@ -33,7 +33,7 @@ public class UserInfoController {
     @RequestMapping("/getAllUser")
     @ResponseBody
     public BaseEntity getAllUser() {
-        int onePageNum = 5;
+        int onePageNum = 20;
 
         PageHelper.startPage(1, onePageNum);
         List<UserInfo> userList = userInfoMapper.selectAll();
