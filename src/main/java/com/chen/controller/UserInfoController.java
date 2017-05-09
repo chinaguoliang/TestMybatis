@@ -74,7 +74,23 @@ public class UserInfoController {
         } else {
             return "failed";
         }
+    }
 
+
+    @RequestMapping("/updateUserInfo")
+    @ResponseBody
+    public String updateUserInfo() {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(33);
+        userInfo.setLatitude("9999");
+        userInfo.setLongitude("9999");
+        userInfo.setSchoolId((int)(Math.random() * 10000));
+        int result = userInfoMapper.updateByPrimaryKeySelective(userInfo);
+        if (result > 0) {
+            return "success";
+        } else {
+            return "failed";
+        }
     }
 
 }
