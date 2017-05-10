@@ -9,6 +9,15 @@ public class BaseEntity {
     int resultCode = 0;
     String errorMsg;
     int AllPageSize;
+    Object obj;
+
+    public Object getObj() {
+        return obj;
+    }
+
+    public void setObj(Object obj) {
+        this.obj = obj;
+    }
 
     public int getAllPageSize() {
         return AllPageSize;
