@@ -1,5 +1,6 @@
 package com.chen.controller;
 
+import com.chen.bean.PayRecord;
 import com.chen.mapper.UserInfoMapper;
 import com.chen.model.BaseEntity;
 import com.chen.model.UserInfo;
@@ -8,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -77,7 +79,6 @@ public class UserInfoController {
 
 
 
-
     @RequestMapping("/addUserInfo")
     @ResponseBody
     public String addUserInfo() {
@@ -108,6 +109,12 @@ public class UserInfoController {
         } else {
             return "failed";
         }
+    }
+
+    @RequestMapping("/testRequestbody")
+    @ResponseBody
+    public String testRequestbody(@RequestBody PayRecord payRecord) {
+        return "姓名:" + payRecord.getName();
     }
 
 }
